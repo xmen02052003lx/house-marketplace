@@ -220,7 +220,7 @@ function CreateListing() {
             <button
               className={type === "sale" ? "formButtonActive" : "formButton"}
               id="type"
-              // value="sale"
+              value="sale"
               onClick={onMutate}
             >
               Sell
@@ -228,7 +228,7 @@ function CreateListing() {
             <button
               className={type === "rent" ? "formButtonActive" : "formButton"}
               id="type"
-              // value="rent"
+              value="rent"
               onClick={onMutate}
             >
               Rent
