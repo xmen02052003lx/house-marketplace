@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg"
 import {
   getAuth,
@@ -10,6 +11,7 @@ import { db } from "../firebase.config"
 import { doc, setDoc, serverTimestamp } from "firebase/firestore"
 // because we gonna use this for the img src, so we dont need to do the 'ReactComponent' like above
 import visibilityIcon from "../assets/svg/visibilityIcon.svg"
+import OAuth from "../components/OAuth"
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -63,7 +65,7 @@ function SignUp() {
       // redirected
       navigate("/")
     } catch (error) {
-      console.log(error)
+      toast.error("Something went wrong with registration")
     }
   }
 
@@ -118,7 +120,7 @@ function SignUp() {
               </button>
             </div>
           </form>
-          {/* Google OAuth */}
+          <OAuth />
           <Link to="/sign-in" className="registerLink">
             Sign In
           </Link>
